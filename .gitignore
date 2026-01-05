@@ -1,0 +1,14 @@
+# Node / JS / build files (opsional)
+node_modules/
+dist/
+build/
+
+# OS / IDE / temporary
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Jangan track file luar folder project
+# Semua yang berada di atas folder project akan diabaikan

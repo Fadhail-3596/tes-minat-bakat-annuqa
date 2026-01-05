@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hasil Tes Minat & Potensi Akademik</title>
+
+  <link rel="icon" href="assets/logo-head.png" type="image/png">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<section class="card result-web">
+
+  <div class="result-header">
+    <img src="assets/logo.png" alt="Logo">
+    <h2>Hasil Tes Minat & Potensi Akademik</h2>
+    <p>Universitas Annuqayah</p>
+  </div>
+
+  <p class="greeting" id="rGreeting"></p>
+
+  <div class="narrative" id="rNarrative"></div>
+
+  <h3 class="section-title">Hasil Scoring</h3>
+  <div class="score-grid">
+    <div><strong>Humaniora</strong><span id="rHumaniora">0</span></div>
+    <div><strong>Sains</strong><span id="rSains">0</span></div>
+    <div><strong>Keagamaan</strong><span id="rKeagamaan">0</span></div>
+    <div><strong>Teknologi</strong><span id="rTeknologi">0</span></div>
+  </div>
+
+  <h3 class="section-title">Rekomendasi Utama</h3>
+  <p id="rRekomendasi" class="recommendation-text"></p>
+
+  <div class="action-wrapper">
+    <button class="btn-submit" onclick="window.location.href='index.html'">Kembali ke Halaman Awal</button>
+    <button class="btn-submit" onclick="unduhPDF()">Unduh PDF</button>
+  </div>
+
+
+</section>
+
+<!-- Scoring script -->
+<script src="js/scoring.js"></script>
+
+<script>
+  const raw = localStorage.getItem("hasilTes");
+
+  if (!raw) {
+    document.body.innerHTML = `
+      <div class="card" style="max-width:500px;margin:4rem auto;text-align:center">
+        <h2>Data Tidak Ditemukan</h2>
+        <p>Silakan kerjakan tes terlebih dahulu.</p>
+        <a href="index.html" class="btn-submit" style="display:inline-block;margin-top:1.5rem">
+          Kembali ke Tes
+        </a>
+      </div>
+    `;
+  } else {
+    const d = JSON.parse(raw);
+
+    document.getElementById("rGreeting").innerText =
+      `Berikut adalah hasil Tes Minat & Potensi Akademik Anda.`;
+
+    document.getElementById("rNarrative").innerHTML =
+      d.narrative || "Berikut adalah gambaran umum potensi akademik Anda berdasarkan hasil tes.";
+
+    document.getElementById("rHumaniora").innerText = d.skorHumaniora ?? 0;
+    document.getElementById("rSains").innerText = d.skorSains ?? 0;
+    document.getElementById("rKeagamaan").innerText = d.skorKeagamaan ?? 0;
+    document.getElementById("rTeknologi").innerText = d.skorTeknologi ?? 0;
+
+    document.getElementById("rRekomendasi").innerText =
+      d.rekomendasi || "Belum ada rekomendasi spesifik.";
+  }
+
+  function unduhPDF() {
+    window.open("template-pdf.html", "_blank");
+  }
+</script>
+
+</body>
+</html>

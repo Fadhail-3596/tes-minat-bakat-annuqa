@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tes Minat & Potensi Akademik | Univ Annuqayah</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/logo-head.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ===== LANDING ===== -->
+<section class="landing" id="landingPage">
+  <div class="landing-card">
+    <img src="assets/logo.png" class="landing-logo">
+    <h1>Selamat Datang</h1>
+    <p>Tes Minat & Potensi Akademik<br>Universitas Annuqayah</p>
+    <button class="btn-start" id="startTestBtn">Mulai Tes Minat</button>
+  </div>
+</section>
+
+<!-- ===== TEST PAGE ===== -->
+<div id="testPage" class="hidden">
+
+<header class="header">
+  <img src="assets/logo.png" class="logo">
+  <h1>Tes Minat & Potensi Akademik</h1>
+  <p class="subtitle">Kenali potensi dan rekomendasi bidang studi terbaik untukmu</p>
+</header>
+
+<main class="container">
+
+<!-- ===== BIODATA ===== -->
+<section id="section-biodata" class="card">
+  <h2>Data Diri</h2>
+
+  <div class="form-group">
+    <label>Nama Lengkap</label>
+    <input type="text" id="nama">
+  </div>
+
+  <div class="form-group">
+    <label>Asal Sekolah</label>
+    <input type="text" id="asalSekolah">
+  </div>
+
+  <div class="form-group">
+    <label>Kelas</label>
+    <input type="text" id="kelas">
+  </div>
+
+  <div class="form-group">
+    <label>No WhatsApp</label>
+    <input type="tel" id="whatsapp">
+  </div>
+
+  <button class="btn-submit" id="btnToInstruction">
+    Mulai Tes
+  </button>
+</section>
+
+<!-- ===== PETUNJUK ===== -->
+<section id="section-instruction" class="card hidden">
+  <h2>Petunjuk Pengisian</h2>
+  <p>
+    Jawablah setiap pernyataan dengan jujur sesuai minat dan potensi Anda.
+    Tidak ada jawaban benar atau salah.
+  </p>
+
+  <button class="btn-submit" id="btnToQuestions">
+    Saya Mengerti
+  </button>
+</section>
+
+<!-- ===== SOAL ===== -->
+<section id="section-questions" class="card hidden">
+
+  <div id="progressText"></div>
+
+  <div id="questionsContainer"></div>
+
+  <div class="step-navigation">
+    <button id="prevBtn" class="btn-nav hidden">Sebelumnya</button>
+    <button id="nextBtn" class="btn-nav">Lanjut</button>
+    <button id="submitBtn" class="btn-submit hidden">Lihat Hasil</button>
+  </div>
+
+</section>
+
+<!-- ===== HASIL ===== -->
+<section id="section-result" class="card hidden">
+  <h2>Hasil Tes Minat & Potensi Akademik</h2>
+
+  <div id="resultText"></div>
+
+  <div class="score-box">
+    <p><strong>Humaniora:</strong> <span id="scoreHumaniora"></span></p>
+    <p><strong>Sains:</strong> <span id="scoreSains"></span></p>
+    <p><strong>Keagamaan:</strong> <span id="scoreKeagamaan"></span></p>
+    <p><strong>Teknologi:</strong> <span id="scoreTeknologi"></span></p>
+  </div>
+
+  <div class="recommendation">
+    <h3>Rekomendasi Utama</h3>
+    <p id="mainRecommendation"></p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<footer class="footer">
+  © 2026 Universitas Annuqayah
+</footer>
+
+<script src="js/questions.js"></script>
+<script src="js/scoring.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
