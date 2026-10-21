@@ -1,83 +1,91 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Hasil Tes Minat & Potensi Akademik</title>
-
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#173f35">
+  <title>Hasil Tes Minat dan Potensi Akademik | Universitas Annuqayah</title>
   <link rel="icon" href="assets/logo-head.png" type="image/png">
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/styles.css">
+  <style>
+    .result-page{min-height:100vh;padding:0 16px 30px}.result-wrap{max-width:900px;margin:22px auto 0}.result-banner{background:var(--forest);color:#fffefa;border-radius:18px;padding:clamp(20px,4vw,34px);position:relative;overflow:hidden}.result-brand{display:flex;align-items:center;gap:7px;position:relative;z-index:1}.result-brand img{width:clamp(38px,8vw,48px);height:48px;max-height:48px;object-fit:contain;object-position:left center}.result-brand span{display:flex;flex-direction:column}.result-brand strong{font:800 .84rem Manrope,sans-serif}.result-brand small{color:#c8d8ce;font-size:.7rem}.result-overline{margin:22px 0 6px;color:#d5bd8d;font-size:.65rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}.result-banner h1{font:800 clamp(1.65rem,4vw,2.6rem)/1.15 Manrope,sans-serif;letter-spacing:-.04em;margin:0}.result-banner>p:last-child{color:#dce7df;max-width:620px;font-size:.86rem;margin:9px 0 0}.result-content{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:12px;margin-top:12px}.result-card{min-width:0;padding:clamp(16px,3vw,24px);background:var(--paper);border:1px solid rgba(23,63,53,.09);border-radius:15px}.result-card h2{color:var(--forest);font:800 1rem Manrope,sans-serif;margin:0 0 6px}.subcopy{color:var(--muted);font-size:.76rem;margin:0 0 14px}.category-pill{display:inline-flex;background:var(--forest-soft);color:var(--forest);border-radius:999px;padding:6px 10px;font-size:.72rem;font-weight:800;margin:5px 0 10px}.result-narrative{color:#536158;line-height:1.7;font-size:.85rem;margin:0}.score-row{margin:13px 0 0}.score-label{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;font-weight:700}.score-label span:last-child{color:var(--forest);font-variant-numeric:tabular-nums}.score-track{height:7px;background:#e8ece6;border-radius:999px;overflow:hidden;margin-top:6px}.score-fill{height:100%;width:0;background:#648c72;border-radius:inherit}.recommendation-list,.popular-list{padding:0;list-style:none;margin:12px 0 0;display:grid;gap:8px}.recommendation-list li{display:flex;gap:9px;align-items:flex-start;color:#405347;font-size:.81rem}.recommendation-list li::before{content:"↗";display:grid;place-items:center;flex:0 0 21px;height:21px;border-radius:6px;background:#e8f0e9;color:var(--forest);font-weight:800}.popular-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.popular-list li{border:1px solid var(--line);border-radius:10px;padding:9px;min-width:0}.popular-list strong{display:block;color:#30463a;font-size:.76rem;line-height:1.35}.popular-list small{display:block;color:var(--muted);font-size:.67rem;margin-top:4px}.rank{color:#8b6c37;font-weight:800;margin-right:4px}.primary-recommendation{padding:13px 14px;border:1px solid #c9d9cc;background:#f1f6f0;border-radius:11px;color:var(--forest)}.primary-recommendation small{display:block;text-transform:uppercase;letter-spacing:.08em;font-size:.65rem;font-weight:800;margin-bottom:5px;color:#627b68}.primary-recommendation strong{font:800 1.08rem Manrope,sans-serif}.alternative-heading{font:800 .8rem Manrope,sans-serif;color:var(--forest);margin:14px 0 0}.pmb-link{margin:18px 0 0;text-align:center;font-size:.82rem}.pmb-link a{color:var(--forest);font-weight:800;text-decoration:underline;text-underline-offset:3px}.result-disclaimer{background:#f7f0e2;color:#755e37;border-radius:10px;padding:11px 13px;margin-top:12px;font-size:.72rem;line-height:1.55}.result-actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-top:14px}.result-actions .btn{min-height:42px;padding:9px 13px;font-size:.8rem}.result-empty{max-width:560px;margin:10vh auto;text-align:center}.result-empty h1{font-family:Manrope,sans-serif;color:var(--forest)}.source-note{color:var(--muted);font-size:.68rem;line-height:1.5;margin:10px 0 0}.full-width{grid-column:1/-1}.accreditation-details summary{cursor:pointer;color:var(--forest);font:800 1rem Manrope,sans-serif}.accreditation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.accreditation-grid>div{background:#f7f8f4;border-radius:9px;padding:11px}.accreditation-grid strong{font-size:.78rem;color:var(--forest)}.accreditation-grid p{font-size:.75rem;color:#536158;margin:5px 0 0;line-height:1.5}.accreditation-details[open] summary{margin-bottom:12px}
+    @media(max-width:640px){.result-page{padding:0 10px 20px}.result-wrap{margin-top:10px}.result-banner{border-radius:14px}.result-content{grid-template-columns:1fr;gap:9px}.popular-list{grid-template-columns:1fr 1fr}.result-actions{display:grid;grid-template-columns:1fr 1fr}.result-actions .btn{width:100%;font-size:.74rem}.result-card{padding:15px}.result-overline{margin-top:17px}}
+    @media(max-width:480px){.accreditation-grid{grid-template-columns:1fr}}@media(max-width:360px){.popular-list{grid-template-columns:1fr}.result-actions{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-
-<section class="card result-web">
-
-  <div class="result-header">
-    <img src="assets/logo.png" alt="Logo">
-    <h2>Hasil Tes Minat & Potensi Akademik</h2>
-    <p>Universitas Annuqayah</p>
-  </div>
-
-  <p class="greeting" id="rGreeting"></p>
-
-  <div class="narrative" id="rNarrative"></div>
-
-  <h3 class="section-title">Hasil Scoring</h3>
-  <div class="score-grid">
-    <div><strong>Humaniora</strong><span id="rHumaniora">0</span></div>
-    <div><strong>Sains</strong><span id="rSains">0</span></div>
-    <div><strong>Keagamaan</strong><span id="rKeagamaan">0</span></div>
-    <div><strong>Teknologi</strong><span id="rTeknologi">0</span></div>
-  </div>
-
-  <h3 class="section-title">Rekomendasi Utama</h3>
-  <p id="rRekomendasi" class="recommendation-text"></p>
-
-  <div class="action-wrapper">
-    <button class="btn-submit" onclick="window.location.href='index.html'">Kembali ke Halaman Awal</button>
-    <button class="btn-submit" onclick="unduhPDF()">Unduh PDF</button>
-  </div>
-
-
-</section>
-
-<!-- Scoring script -->
-<script src="js/scoring.js"></script>
-
+  <main class="result-page"><div class="result-wrap" id="resultWrap">
+    <section class="result-banner"><div class="result-brand"><img src="assets/logo-head.png" alt=""><span><strong>Universitas Annuqayah</strong><small>Tes Minat dan Potensi Akademik</small></span></div><p class="result-overline">HASIL EKSPLORASI DIRI</p><h1 id="resultTitle">Hasil tesmu sudah siap.</h1><p>Gunakan hasil ini sebagai awal untuk mengeksplorasi pilihan studi, bukan sebagai keputusan mutlak.</p></section>
+    <div class="result-content">
+      <section class="result-card"><h2>Gambaran minatmu</h2><p class="subcopy">Ringkasan berdasarkan jawaban yang kamu berikan.</p><span class="category-pill" id="dominantCategory">Bidang utama</span><p class="result-narrative" id="resultNarrative"></p><div class="result-disclaimer">Tes ini bersifat eksploratif, bukan tes psikologi klinis atau jaminan kecocokan jurusan. Pertimbangkan juga kemampuan, nilai, pengalaman, dan konsultasi dengan guru BK.</div></section>
+      <section class="result-card"><h2>Ringkasan skor</h2><p class="subcopy">Setiap bidang memiliki 4 pernyataan, skor 4–20.</p><div id="scoreGrid"></div></section>
+      <section class="result-card"><h2>Rekomendasi program studi</h2><p class="subcopy">Satu rekomendasi utama dan dua alternatif berdasarkan klaster dengan skor tertinggi.</p><div id="primaryRecommendation" class="primary-recommendation"></div><h3 class="alternative-heading">Dua pilihan alternatif</h3><ul class="recommendation-list" id="recommendationList"></ul></section>
+      
+      <details class="result-card full-width accreditation-details"><summary>Ringkasan akreditasi prodi S1</summary><p class="subcopy">Ringkasan berikut hanya mengikuti data masukan dan harus diverifikasi kembali sebelum dipakai untuk keputusan.</p><div class="accreditation-grid"><div><strong>Unggul*</strong><p>Pendidikan Agama Islam (PAI); Pendidikan Bahasa Arab (PBA).</p></div><div><strong>Baik Sekali*</strong><p>Biologi; Pendidikan Islam Anak Usia Dini (PIAUD).</p></div><div><strong>Baik*</strong><p>Ekonomi Syari’ah; Perbankan Syariah; Hukum Ekonomi Syari’ah; Hukum Keluarga Islam; Matematika; Kimia; Teknologi Hasil Pertanian; Ilmu al-Quran dan Tafsir; Tasawuf dan Psikoterapi.</p></div><div><strong>Perlu verifikasi</strong><p>Bisnis Digital; Hukum Bisnis; Sains Lingkungan; Teknik Sipil; Teknologi Informasi; Kecerdasan Buatan; Ilmu Komunikasi; Sastra Indonesia.</p></div></div><p class="source-note">Rujukan untuk pemeriksaan: <a href="https://ua.ac.id/" target="_blank" rel="noopener">Situs resmi Universitas Annuqayah</a>, <a href="https://saintek.ua.ac.id/akreditasi/" target="_blank" rel="noopener">halaman akreditasi Fakultas Saintek</a>, serta <a href="https://www.banpt.or.id/" target="_blank" rel="noopener">BAN-PT</a> atau LAM terkait.</p></details>
+    </div>
+    <p class="pmb-link"><a href="https://pmb.ua.ac.id/" target="_blank" rel="noopener noreferrer">Informasi lengkap Penerimaan Mahasiswa Baru (PMB) ↗</a></p><div class="result-actions"><button type="button" class="btn btn-secondary" id="backHomeBtn">Kembali ke beranda</button><button type="button" class="btn btn-primary" id="pdfBtn">Cetak / simpan PDF ↗</button></div>
+  </div></main>
 <script>
-  const raw = localStorage.getItem("hasilTes");
-
-  if (!raw) {
-    document.body.innerHTML = `
-      <div class="card" style="max-width:500px;margin:4rem auto;text-align:center">
-        <h2>Data Tidak Ditemukan</h2>
-        <p>Silakan kerjakan tes terlebih dahulu.</p>
-        <a href="index.html" class="btn-submit" style="display:inline-block;margin-top:1.5rem">
-          Kembali ke Tes
-        </a>
-      </div>
-    `;
-  } else {
-    const d = JSON.parse(raw);
-
-    document.getElementById("rGreeting").innerText =
-      `Berikut adalah hasil Tes Minat & Potensi Akademik Anda.`;
-
-    document.getElementById("rNarrative").innerHTML =
-      d.narrative || "Berikut adalah gambaran umum potensi akademik Anda berdasarkan hasil tes.";
-
-    document.getElementById("rHumaniora").innerText = d.skorHumaniora ?? 0;
-    document.getElementById("rSains").innerText = d.skorSains ?? 0;
-    document.getElementById("rKeagamaan").innerText = d.skorKeagamaan ?? 0;
-    document.getElementById("rTeknologi").innerText = d.skorTeknologi ?? 0;
-
-    document.getElementById("rRekomendasi").innerText =
-      d.rekomendasi || "Belum ada rekomendasi spesifik.";
+(() => {
+  const PREFIX = "annuqayah-tmb-result:";
+  const labels = { pendidikan:"Pendidikan", keagamaan:"Kajian Keislaman", bisnis:"Bisnis & Ekonomi", teknologi:"Teknologi", sains:"Sains & Lingkungan", komunikasi:"Komunikasi & Kreativitas" };
+  const scoreFields = { pendidikan:"skorPendidikan", keagamaan:"skorKeagamaan", bisnis:"skorBisnis", teknologi:"skorTeknologi", sains:"skorSains", komunikasi:"skorKomunikasi" };
+  function readData() {
+    try { if (window.name.startsWith(PREFIX)) return JSON.parse(decodeURIComponent(window.name.slice(PREFIX.length))); } catch (_) {}
+    try { const raw = localStorage.getItem("hasilTes"); if (raw) return JSON.parse(raw); } catch (_) {}
+    return null;
   }
-
-  function unduhPDF() {
-    window.open("template-pdf.html", "_blank");
+  const data = readData();
+  if (!data) {
+    const wrap = document.getElementById("resultWrap"); wrap.replaceChildren();
+    const box = document.createElement("section"); box.className = "result-card result-empty";
+    const title = document.createElement("h1"); title.textContent = "Hasil belum tersedia";
+    const msg = document.createElement("p"); msg.textContent = "Selesaikan tes terlebih dahulu. Jika membuka file langsung, gunakan file index.html dan selesaikan tes pada tab yang sama.";
+    const link = document.createElement("a"); link.className = "btn btn-primary"; link.href = "index.html"; link.textContent = "Kembali ke tes";
+    box.append(title,msg,link); wrap.append(box); return;
   }
+  document.getElementById("resultTitle").textContent = data.nama ? `Terima kasih, ${data.nama}.` : "Hasil tesmu sudah siap.";
+  const scores = {};
+  Object.entries(scoreFields).forEach(([key, field]) => scores[key] = Number(data[field]) || 0);
+  const topCategories = Object.keys(scores).sort((a, b) => scores[b] - scores[a] || Object.keys(scores).indexOf(a) - Object.keys(scores).indexOf(b)).slice(0, 3);
+  document.getElementById("dominantCategory").textContent = `Tiga kecenderungan teratas: ${topCategories.map(k => labels[k] || k).join(" • ")}`;
+  document.getElementById("resultNarrative").textContent = `Tiga bidang dengan skor tertinggi adalah ${topCategories.map(k => labels[k] || k).join(", ")}. Gunakan hasil ini sebagai bahan awal untuk mengeksplorasi pilihan studi, bukan sebagai keputusan mutlak.`;
+  const scoreGrid = document.getElementById("scoreGrid");
+  Object.entries(scores).forEach(([key, score]) => {
+    const row = document.createElement("div"); row.className = "score-row";
+    const label = document.createElement("div"); label.className = "score-label";
+    const name = document.createElement("span"); name.textContent = labels[key]; const val = document.createElement("span"); val.textContent = `${score}/20`;
+    label.append(name,val); const track = document.createElement("div"); track.className = "score-track";
+    const fill = document.createElement("div"); fill.className = "score-fill"; fill.style.width = `${Math.max(0,Math.min(100,score/20*100))}%`;
+    track.append(fill); row.append(label,track); scoreGrid.append(row);
+  });
+  const clusters = [
+    { id:"keagamaan", label:"Keagamaan & Sosial Spiritual", dimensions:["keagamaan"], programs:["Pendidikan Agama Islam (PAI)","Pendidikan Bahasa Arab (PBA)","Ilmu al-Quran dan Tafsir (IQT)","Tasawuf dan Psikoterapi"] },
+    { id:"teknologi", label:"Teknik & Teknologi Digital", dimensions:["teknologi"], programs:["Teknologi Informasi","Kecerdasan Buatan (AI)","Teknik Sipil"] },
+    { id:"bisnis", label:"Bisnis, Hukum & Manajemen", dimensions:["bisnis"], programs:["Ekonomi Syari’ah","Perbankan Syariah","Bisnis Digital","Hukum Ekonomi Syari’ah (Mu'amalah)","Hukum Keluarga Islam (Ahwal Syakhsiyyah)","Hukum Bisnis"] },
+    { id:"humaniora", label:"Sains, Pendidikan & Humaniora", dimensions:["pendidikan","sains","komunikasi"], programs:["Biologi","Matematika","Kimia","Teknologi Hasil Pertanian (THP)","Sains Lingkungan","Pendidikan Islam Anak Usia Dini (PIAUD)","Ilmu Komunikasi","Sastra Indonesia"] }
+  ];
+  const rankedClusters = clusters.map(c => ({...c, score:c.dimensions.reduce((sum,key)=>sum+(scores[key]||0),0)/c.dimensions.length})).sort((a,b)=>b.score-a.score || clusters.findIndex(c=>c.id===a.id)-clusters.findIndex(c=>c.id===b.id));
+  const preferredProgram = cluster => {
+    if (cluster.id !== "humaniora") return cluster.programs[0];
+    const bestDim = ["pendidikan","sains","komunikasi"].sort((a,b)=>scores[b]-scores[a])[0];
+    return bestDim === "pendidikan" ? "Pendidikan Islam Anak Usia Dini (PIAUD)" : bestDim === "komunikasi" ? "Ilmu Komunikasi" : "Biologi";
+  };
+  const primary = rankedClusters[0];
+  const primaryNameText = preferredProgram(primary);
+  const primaryBox = document.getElementById("primaryRecommendation");
+  const primaryLabel = document.createElement("small"); primaryLabel.textContent = `REKOMENDASI UTAMA · ${primary.label}`;
+  const primaryName = document.createElement("strong"); primaryName.textContent = primaryNameText; primaryBox.append(primaryLabel, primaryName);
+  const alternativeList = document.getElementById("recommendationList");
+  const alternatives = [];
+  rankedClusters.slice(1).forEach(cluster => { const name = preferredProgram(cluster); if (alternatives.length < 2 && name !== primaryNameText && !alternatives.includes(name)) alternatives.push(name); });
+  while (alternatives.length < 2) { const next = primary.programs.find(name => name !== primaryNameText && !alternatives.includes(name)); if (!next) break; alternatives.push(next); }
+  alternatives.slice(0,2).forEach((name,index) => { const li = document.createElement("li"); li.textContent = `${name} — alternatif ${index+1}`; alternativeList.append(li); });
+  document.getElementById("backHomeBtn").addEventListener("click", () => { window.location.href = "index.html"; });
+  document.getElementById("pdfBtn").addEventListener("click", () => {
+    try { window.name = PREFIX + encodeURIComponent(JSON.stringify(data)); } catch (_) {}
+    const reportWindow = window.open("about:blank", "_blank");
+    if (reportWindow) { try { reportWindow.name = PREFIX + encodeURIComponent(JSON.stringify(data)); reportWindow.location.href = "template-pdf.html"; } catch (_) { reportWindow.location.href = "template-pdf.html"; } }
+  });
+})();
 </script>
-
-</body>
-</html>
+</body></html>
