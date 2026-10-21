@@ -69,3 +69,9 @@ Hubungkan repositori GitHub ke Netlify, gunakan root repositori sebagai publish 
 - [ ] Layout diuji pada ponsel kecil, tablet, dan desktop.
 - [ ] Pengiriman Google Sheets diuji secara terpisah; mode `no-cors` tidak dapat memastikan keberhasilan penerimaan data dari sisi browser.
 - [ ] Status prodi dan akreditasi diverifikasi dengan sumber resmi terbaru sebelum rilis.
+
+## 🔗 Live Demo
+
+Coba aplikasi **Tes Minat dan Potensi Akademik Universitas Annuqayah** melalui tautan berikut:
+
+👉 **[Buka Live Demo](https://tmb-univ-annuqayah.netlify.app/)**
