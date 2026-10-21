@@ -1,77 +1,169 @@
 # Tes Minat dan Potensi Akademik — Universitas Annuqayah
 
-Aplikasi web statis untuk membantu calon mahasiswa mengeksplorasi kecenderungan minat akademik. Tes ini berisi **24 pernyataan** yang dibagi rata ke dalam enam bidang: Pendidikan, Kajian Keislaman, Bisnis & Ekonomi, Teknologi, Sains & Lingkungan, serta Komunikasi & Kreativitas.
+Aplikasi web untuk membantu calon mahasiswa mengenali kecenderungan minat akademik dan mengeksplorasi pilihan program studi di Universitas Annuqayah.
 
-> **Catatan:** hasil bersifat eksploratif, bukan diagnosis psikologis atau keputusan mutlak tentang jurusan. Daftar prodi favorit dan status akreditasi yang ditampilkan berasal dari data masukan penyelenggara dan perlu diperiksa pada sumber resmi sebelum digunakan untuk keputusan penting.
+## 🔗 Live Demo
 
-## Fitur
+**[Buka Tes Minat dan Potensi Akademik](https://tmb-univ-annuqayah.netlify.app/)**
 
-- Formulir peserta dan persetujuan pengiriman data.
-- 24 pernyataan dengan skala 1–5, ditampilkan 4 butir per halaman.
-- Skor 4–20 untuk masing-masing dari enam bidang minat.
-- Penanganan skor seri dan rekomendasi program studi terkait.
-- Daftar 10 prodi favorit ditampilkan terpisah dari kecocokan minat.
-- Laporan yang dapat dicetak atau disimpan sebagai PDF.
-- Pengiriman data ke Google Sheets melalui endpoint Google Apps Script yang dikonfigurasi di `js/main.js`.
-- Fallback `window.name` untuk meneruskan hasil saat browser membatasi `localStorage` pada halaman yang dibuka melalui `file://`.
+## 📌 Tentang Aplikasi
 
-## Teknologi dan struktur
+Tes Minat dan Potensi Akademik merupakan alat eksplorasi awal untuk membantu peserta memahami bidang akademik yang sesuai dengan ketertarikan mereka.
 
-HTML, CSS, dan JavaScript murni; tidak membutuhkan framework, proses build, atau instalasi package.
+Peserta mengisi biodata, membaca petunjuk, kemudian menjawab pernyataan berdasarkan minat dan kecenderungan pribadi. Sistem mengolah jawaban menjadi ringkasan skor dan rekomendasi program studi.
+
+**Penting:** hasil tes bukan diagnosis psikologis, bukan tes kecerdasan, dan bukan keputusan mutlak dalam menentukan jurusan. Hasil sebaiknya digunakan sebagai bahan pertimbangan bersama kemampuan akademik, pengalaman, tujuan karier, dan informasi resmi program studi.
+
+## ✨ Fitur Utama
+
+- Formulir biodata peserta dan persetujuan pengiriman data.
+- 24 pernyataan dengan skala penilaian 1–5.
+- Ringkasan skor pada enam bidang minat.
+- Identifikasi kecenderungan minat tertinggi, termasuk ketika skor seri.
+- Rekomendasi satu program studi utama dan dua alternatif berdasarkan hasil penilaian.
+- Informasi empat klaster program studi.
+- Laporan hasil yang dapat dicetak atau disimpan sebagai PDF.
+- Pengiriman data ke Google Sheets melalui Google Apps Script apabila telah dikonfigurasi.
+- Antarmuka responsif untuk ponsel, tablet, dan desktop.
+
+## 🎓 Empat Klaster Program Studi
+
+Program studi dikelompokkan menjadi empat klaster untuk membantu peserta mengeksplorasi bidang yang diminati.
+
+| Klaster | Contoh program studi |
+|---|---|
+| **Keagamaan & Sosial Spiritual** | Pendidikan Agama Islam (PAI), Pendidikan Bahasa Arab (PBA), Ilmu al-Quran dan Tafsir (IQT), Tasawuf dan Psikoterapi |
+| **Teknik & Teknologi Digital** | Teknologi Informasi, Kecerdasan Buatan (AI), Teknik Sipil |
+| **Bisnis, Hukum & Manajemen** | Ekonomi Syariah, Perbankan Syariah, Bisnis Digital, Hukum Ekonomi Syariah, Hukum Keluarga Islam, Hukum Bisnis |
+| **Sains, Pendidikan & Humaniora** | Biologi, Matematika, Kimia, Teknologi Hasil Pertanian, Sains Lingkungan, PIAUD, Ilmu Komunikasi, Sastra Indonesia |
+
+Daftar tersebut merupakan pengelompokan untuk eksplorasi awal. Ketersediaan program studi, persyaratan penerimaan, dan status akreditasi dapat berubah. Periksa informasi terkini melalui [situs resmi Universitas Annuqayah](https://ua.ac.id/) dan [portal PMB Universitas Annuqayah](https://pmb.ua.ac.id/).
+
+## 📝 Skala dan Sistem Penilaian
+
+Setiap pernyataan menggunakan skala Likert lima tingkat.
+
+| Skor | Pilihan jawaban |
+|---:|---|
+| 1 | Sangat Tidak Setuju |
+| 2 | Tidak Setuju |
+| 3 | Netral |
+| 4 | Setuju |
+| 5 | Sangat Setuju |
+
+Setiap bidang penilaian diwakili oleh empat pernyataan. Dengan demikian, skor masing-masing bidang berada pada rentang **4–20**.
+
+Secara umum, proses penilaian meliputi:
+
+1. Sistem mengumpulkan jawaban peserta.
+2. Jawaban diakumulasikan sesuai bidang atau klaster yang diwakili.
+3. Sistem membandingkan skor untuk mengidentifikasi kecenderungan tertinggi.
+4. Program studi direkomendasikan berdasarkan aturan pemetaan pada aplikasi.
+5. Jika skor tertinggi sama, bidang yang seri perlu dipertimbangkan bersama, bukan dipaksakan menjadi satu kecenderungan tunggal.
+
+Popularitas program studi tidak seharusnya menggantikan hasil penilaian minat pribadi. Rekomendasi merupakan titik awal eksplorasi, bukan jaminan kecocokan akademik.
+
+## 🚀 Cara Menggunakan Aplikasi
+
+1. Buka [Live Demo](https://tmb-univ-annuqayah.netlify.app/).
+2. Isi biodata sesuai informasi yang diminta.
+3. Baca petunjuk dan persetujuan pengolahan data.
+4. Jawab seluruh pernyataan sesuai minat diri sendiri, bukan berdasarkan jawaban yang dianggap paling baik.
+5. Periksa hasil kecenderungan minat dan rekomendasi program studi.
+6. Jika diperlukan, cetak atau simpan laporan hasil sebagai PDF.
+
+Jawablah secara jujur agar hasil lebih mencerminkan ketertarikan pribadi.
+
+## 🛠️ Teknologi yang Digunakan
+
+Aplikasi dibangun menggunakan teknologi web dasar:
+
+- **HTML5** — struktur halaman dan formulir.
+- **CSS3** — desain antarmuka, tata letak, dan responsivitas.
+- **JavaScript** — pengelolaan alur tes, perhitungan skor, rekomendasi, dan penyajian hasil.
+- **Google Apps Script dan Google Sheets** — penyimpanan data peserta apabila integrasi diaktifkan.
+- **Netlify** — hosting aplikasi web.
+
+Proyek tidak memerlukan framework JavaScript atau proses build khusus.
+
+## 📂 Struktur Proyek
 
 ```text
 .
 ├── assets/
-│   ├── logo-head.png   # simbol kampus saja
-│   └── logo.png        # logo lengkap dengan tulisan Universitas Annuqayah
-├── css/styles.css
+│   ├── logo-head.png
+│   └── logo.png
+├── css/
+│   └── styles.css
 ├── js/
-│   ├── main.js         # alur formulir, tes, penyimpanan, dan pengiriman
-│   ├── questions.js    # pernyataan dan pilihan jawaban
-│   └── scoring.js      # perhitungan, rekomendasi, dan daftar prodi favorit
+│   ├── main.js
+│   ├── questions.js
+│   └── scoring.js
 ├── index.html
 ├── result.html
-└── template-pdf.html
+├── template-pdf.html
+└── README.md
 ```
 
-## Menjalankan secara lokal
+**Fungsi file utama:**
 
-Cara paling konsisten adalah menggunakan server lokal, bukan membuka file HTML satu per satu:
+| File | Kegunaan |
+|---|---|
+| `index.html` | Halaman awal, biodata, petunjuk, dan proses pengerjaan tes |
+| `result.html` | Menampilkan ringkasan hasil dan rekomendasi |
+| `template-pdf.html` | Tata letak laporan untuk dicetak atau disimpan sebagai PDF |
+| `css/styles.css` | Gaya visual dan penyesuaian tampilan berbagai ukuran layar |
+| `js/main.js` | Validasi formulir, navigasi tes, penyimpanan jawaban, dan integrasi pengiriman data |
+| `js/questions.js` | Daftar pernyataan tes dan pilihan jawaban |
+| `js/scoring.js` | Perhitungan skor dan pemetaan rekomendasi |
+| `assets/logo-head.png` | Logo simbol kampus |
+| `assets/logo.png` | Logo lengkap dengan tulisan Universitas Annuqayah |
 
-1. Buka terminal di folder proyek.
-2. Jalankan `python -m http.server 8000` (atau `python3 -m http.server 8000`).
-3. Buka `http://localhost:8000` di browser.
-4. Isi formulir, selesaikan semua pernyataan, lihat hasil, lalu uji cetak/simpan PDF.
-5. Hentikan server dengan `Ctrl+C` di terminal.
+## 💻 Menjalankan Secara Lokal
 
-Aplikasi juga memiliki fallback untuk percobaan melalui `file://`, tetapi server lokal lebih dapat diandalkan karena penyimpanan browser untuk file lokal tidak konsisten antar-browser.
+Untuk mencoba aplikasi di komputer, gunakan server lokal agar perilaku navigasi dan penyimpanan lebih konsisten.
 
-## Logika penilaian
+**Persyaratan:** Python 3 atau server HTTP lokal yang setara.
 
-Setiap bidang diwakili empat pernyataan. Setiap jawaban bernilai 1 sampai 5, sehingga skor bidang berada pada rentang 4–20. Skor tertinggi menentukan kecenderungan utama; jika ada skor yang sama, seluruh bidang yang seri ditampilkan. Rekomendasi personal mengikuti bidang yang menonjol. Urutan 10 prodi favorit merupakan informasi tambahan yang terpisah agar popularitas tidak mengubah skor minat peserta.
+1. Unduh atau salin repository ke komputer.
+2. Buka terminal di direktori proyek.
+3. Jalankan perintah berikut:
 
-Pertanyaan berada di `js/questions.js`; penilaian dan rekomendasi di `js/scoring.js`; alur antarmuka berada di `js/main.js`.
+   ```bash
+   python -m http.server 8000
+   ```
 
-## Privasi dan keamanan
+   Pada sebagian sistem, gunakan `python3 -m http.server 8000`.
 
-Sebelum penggunaan publik, pastikan pengelola memahami dan menyetujui penggunaan endpoint Google Apps Script. Periksa akses spreadsheet, tujuan pemrosesan, masa simpan, dan prosedur penghapusan data. Formulir meminta persetujuan sebelum pengiriman, tetapi persetujuan tersebut bukan pengganti pemberitahuan privasi yang lengkap. Jangan menaruh kredensial rahasia di JavaScript sisi klien.
+4. Buka alamat berikut di browser:
 
-## Deployment Netlify
+   `http://localhost:8000`
 
-Hubungkan repositori GitHub ke Netlify, gunakan root repositori sebagai publish directory jika `index.html` berada di root, dan kosongkan build command. Uji deployment preview pada ponsel dan desktop sebelum memublikasikan ke situs utama.
+5. Coba alur lengkap dari pengisian biodata sampai hasil dan laporan PDF.
 
-## Checklist sebelum rilis
+Hentikan server dengan `Ctrl+C` pada terminal.
 
-- [ ] Semua 24 pernyataan dapat dijawab dan jawaban tersimpan saat berpindah halaman.
-- [ ] Skor keenam bidang berada pada rentang 4–20 dan skor seri ditampilkan dengan benar.
-- [ ] Rekomendasi minat dan daftar prodi favorit tampil terpisah.
-- [ ] Hasil dan PDF bekerja di localhost dan deployment preview.
-- [ ] Layout diuji pada ponsel kecil, tablet, dan desktop.
-- [ ] Pengiriman Google Sheets diuji secara terpisah; mode `no-cors` tidak dapat memastikan keberhasilan penerimaan data dari sisi browser.
-- [ ] Status prodi dan akreditasi diverifikasi dengan sumber resmi terbaru sebelum rilis.
+Membuka HTML secara langsung menggunakan alamat `file://` dapat menimbulkan perbedaan perilaku penyimpanan antar-browser. Karena itu, server lokal lebih disarankan.
 
-## 🔗 Live Demo
+## 🔐 Privasi dan Pengelolaan Data
 
-Coba aplikasi **Tes Minat dan Potensi Akademik Universitas Annuqayah** melalui tautan berikut:
+Aplikasi dapat mengirimkan data peserta ke Google Sheets melalui Google Apps Script apabila endpoint telah dikonfigurasi.
 
-👉 **[Buka Live Demo](https://tmb-univ-annuqayah.netlify.app/)**
+Sebelum menggunakan fitur tersebut untuk peserta sungguhan, pengelola perlu memastikan:
+
+- Tujuan pengumpulan data dijelaskan kepada peserta.
+- Persetujuan diberikan sebelum data dikirim.
+- Spreadsheet hanya dapat diakses oleh pihak berwenang.
+- Data disimpan sesuai kebutuhan dan memiliki kebijakan penghapusan.
+- Informasi pribadi tidak disebarkan tanpa dasar dan kewenangan yang sesuai.
+- Tidak ada kata sandi, token rahasia, atau kredensial sensitif di dalam kode JavaScript sisi klien.
+
+**Catatan teknis:** apabila pengiriman menggunakan mode `no-cors`, browser tidak dapat membaca respons server untuk memastikan bahwa data benar-benar diterima atau tersimpan. Keberhasilan integrasi perlu diperiksa melalui Google Apps Script dan spreadsheet tujuan.
+
+## 📄 Lisensi dan Penggunaan
+
+README ini tidak menetapkan lisensi penggunaan kode. Jika proyek akan digunakan, dimodifikasi, atau didistribusikan oleh pihak lain, tambahkan berkas `LICENSE` yang sesuai dengan ketentuan pemilik proyek.
+
+---
+
+Dikembangkan untuk mendukung eksplorasi minat akademik calon mahasiswa **Universitas Annuqayah**.
