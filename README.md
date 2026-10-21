@@ -1,114 +1,71 @@
-# Tes Minat & Potensi Akademik — Universitas Annuqayah
+# Tes Minat dan Potensi Akademik — Universitas Annuqayah
 
-Aplikasi web statis untuk membantu calon mahasiswa mengeksplorasi kecenderungan minat akademik melalui pernyataan singkat dan memperoleh ringkasan skor pada empat kategori: Humaniora, Sains, Keagamaan, dan Teknologi.
+Aplikasi web statis untuk membantu calon mahasiswa mengeksplorasi kecenderungan minat akademik. Tes ini berisi **24 pernyataan** yang dibagi rata ke dalam enam bidang: Pendidikan, Kajian Keislaman, Bisnis & Ekonomi, Teknologi, Sains & Lingkungan, serta Komunikasi & Kreativitas.
 
-> **Catatan penting:** hasil tes merupakan gambaran awal untuk eksplorasi minat, bukan diagnosis psikologis atau kepastian mengenai bakat maupun jurusan yang paling tepat.
+> **Catatan:** hasil bersifat eksploratif, bukan diagnosis psikologis atau keputusan mutlak tentang jurusan. Daftar prodi favorit dan status akreditasi yang ditampilkan berasal dari data masukan penyelenggara dan perlu diperiksa pada sumber resmi sebelum digunakan untuk keputusan penting.
 
 ## Fitur
 
-- Formulir data peserta.
-- Petunjuk dan pertanyaan tes.
-- Penghitungan skor untuk empat kategori.
-- Halaman hasil dan rekomendasi awal.
-- Pembuatan laporan melalui fitur cetak/simpan sebagai PDF.
-- Pengiriman data ke Google Sheets melalui Google Apps Script (konfigurasi saat ini berada di `js/main.js`).
+- Formulir peserta dan persetujuan pengiriman data.
+- 24 pernyataan dengan skala 1–5, ditampilkan 4 butir per halaman.
+- Skor 4–20 untuk masing-masing dari enam bidang minat.
+- Penanganan skor seri dan rekomendasi program studi terkait.
+- Daftar 10 prodi favorit ditampilkan terpisah dari kecocokan minat.
+- Laporan yang dapat dicetak atau disimpan sebagai PDF.
+- Pengiriman data ke Google Sheets melalui endpoint Google Apps Script yang dikonfigurasi di `js/main.js`.
+- Fallback `window.name` untuk meneruskan hasil saat browser membatasi `localStorage` pada halaman yang dibuka melalui `file://`.
 
-## Teknologi
+## Teknologi dan struktur
 
-- HTML
-- CSS
-- JavaScript
-- `localStorage` untuk meneruskan hasil tes ke halaman hasil dan laporan.
-- Google Apps Script sebagai endpoint pengiriman data (jika diaktifkan dan tersedia).
-
-Aplikasi tidak memerlukan proses build atau instalasi package untuk dijalankan sebagai situs statis.
-
-## Struktur proyek
+HTML, CSS, dan JavaScript murni; tidak membutuhkan framework, proses build, atau instalasi package.
 
 ```text
 .
 ├── assets/
-│   ├── logo-head.png
-│   └── logo.png
-├── css/
-│   └── styles.css
+│   ├── logo-head.png   # simbol kampus saja
+│   └── logo.png        # logo lengkap dengan tulisan Universitas Annuqayah
+├── css/styles.css
 ├── js/
-│   ├── main.js
-│   ├── questions.js
-│   └── scoring.js
+│   ├── main.js         # alur formulir, tes, penyimpanan, dan pengiriman
+│   ├── questions.js    # pernyataan dan pilihan jawaban
+│   └── scoring.js      # perhitungan, rekomendasi, dan daftar prodi favorit
 ├── index.html
 ├── result.html
-├── template-pdf.html
-└── README.md
+└── template-pdf.html
 ```
 
 ## Menjalankan secara lokal
 
-1. Unduh atau salin repositori.
-2. Buka `index.html` di browser untuk pemeriksaan awal.
-3. Untuk pengujian yang lebih konsisten, jalankan folder ini menggunakan server statis lokal.
-4. Uji alur dari halaman awal sampai hasil dan cetak PDF.
+Cara paling konsisten adalah menggunakan server lokal, bukan membuka file HTML satu per satu:
 
-Tidak ada perintah `npm install` atau proses build yang diperlukan dalam struktur saat ini.
+1. Buka terminal di folder proyek.
+2. Jalankan `python -m http.server 8000` (atau `python3 -m http.server 8000`).
+3. Buka `http://localhost:8000` di browser.
+4. Isi formulir, selesaikan semua pernyataan, lihat hasil, lalu uji cetak/simpan PDF.
+5. Hentikan server dengan `Ctrl+C` di terminal.
 
-## Alur aplikasi
-
-1. Peserta membuka `index.html`.
-2. Peserta mengisi data diri dan membaca petunjuk.
-3. Peserta menjawab pertanyaan tes.
-4. JavaScript menghitung skor berdasarkan kategori.
-5. Hasil disimpan sementara di `localStorage` dan ditampilkan di `result.html`.
-6. Peserta dapat mencetak atau menyimpan laporan sebagai PDF.
+Aplikasi juga memiliki fallback untuk percobaan melalui `file://`, tetapi server lokal lebih dapat diandalkan karena penyimpanan browser untuk file lokal tidak konsisten antar-browser.
 
 ## Logika penilaian
 
-Pertanyaan didefinisikan di `js/questions.js`, sedangkan fungsi penghitungan skor dan narasi rekomendasi berada di `js/scoring.js`. Alur interaksi tes berada di `js/main.js`.
+Setiap bidang diwakili empat pernyataan. Setiap jawaban bernilai 1 sampai 5, sehingga skor bidang berada pada rentang 4–20. Skor tertinggi menentukan kecenderungan utama; jika ada skor yang sama, seluruh bidang yang seri ditampilkan. Rekomendasi personal mengikuti bidang yang menonjol. Urutan 10 prodi favorit merupakan informasi tambahan yang terpisah agar popularitas tidak mengubah skor minat peserta.
 
-Sebelum mengubah pertanyaan, bobot, kategori, atau aturan rekomendasi, lakukan pengujian regresi agar hasil tidak berubah tanpa sengaja. Penanganan skor seri dan pertanyaan yang belum dijawab juga perlu ditetapkan secara eksplisit.
+Pertanyaan berada di `js/questions.js`; penilaian dan rekomendasi di `js/scoring.js`; alur antarmuka berada di `js/main.js`.
 
-## Privasi dan keamanan data
+## Privasi dan keamanan
 
-Versi saat ini memiliki endpoint Google Apps Script yang didefinisikan di `js/main.js`. Sebelum penggunaan publik:
+Sebelum penggunaan publik, pastikan pengelola memahami dan menyetujui penggunaan endpoint Google Apps Script. Periksa akses spreadsheet, tujuan pemrosesan, masa simpan, dan prosedur penghapusan data. Formulir meminta persetujuan sebelum pengiriman, tetapi persetujuan tersebut bukan pengganti pemberitahuan privasi yang lengkap. Jangan menaruh kredensial rahasia di JavaScript sisi klien.
 
-- Pastikan data apa saja yang dikirim dan siapa yang dapat mengakses spreadsheet.
-- Tampilkan pemberitahuan privasi dan minta persetujuan yang sesuai sebelum mengirim data.
-- Tentukan tujuan penggunaan, masa simpan, dan prosedur penghapusan data.
-- Hindari memasukkan data pribadi yang tidak diperlukan.
-- Validasi seluruh jawaban sebelum menghitung atau mengirim hasil.
-- Tampilkan data pengguna sebagai teks, bukan menyisipkannya ke HTML melalui `innerHTML`.
-- Jangan menaruh kata sandi, token rahasia, atau kredensial privat dalam kode sisi klien.
+## Deployment Netlify
 
-## Deployment ke Netlify
+Hubungkan repositori GitHub ke Netlify, gunakan root repositori sebagai publish directory jika `index.html` berada di root, dan kosongkan build command. Uji deployment preview pada ponsel dan desktop sebelum memublikasikan ke situs utama.
 
-Proyek ini merupakan situs statis. Untuk deployment:
+## Checklist sebelum rilis
 
-1. Hubungkan repositori GitHub ke Netlify.
-2. Atur **Publish directory** ke direktori yang berisi `index.html` (root repositori jika struktur tetap seperti di atas).
-3. Kosongkan build command karena tidak ada proses build yang diperlukan.
-4. Deploy sebagai preview terlebih dahulu, lalu uji seluruh alur.
-5. Publikasikan perubahan ke situs utama setelah pengujian berhasil.
-
-Jika proyek berada di subdirektori dalam repositori, sesuaikan publish directory dengan lokasi `index.html`.
-
-## Checklist pengujian sebelum rilis
-
-- [ ] Formulir menolak data wajib yang kosong dan memberikan pesan yang jelas.
-- [ ] Semua pertanyaan wajib dijawab sebelum hasil dihitung.
-- [ ] Tombol kembali dan lanjut bekerja dengan benar.
-- [ ] Skor empat kategori sesuai dengan jawaban yang dipilih.
-- [ ] Skor seri ditangani dengan aturan yang jelas.
-- [ ] Data peserta ditampilkan dengan aman.
-- [ ] Halaman hasil menangani kondisi ketika data tidak tersedia atau rusak.
-- [ ] Tampilan nyaman pada ponsel dan desktop.
-- [ ] Navigasi keyboard, label input, fokus, dan kontras dapat digunakan.
-- [ ] Cetak/simpan PDF tidak terpotong dan menampilkan data yang sesuai.
-- [ ] Pengiriman ke Google Sheets diuji serta sesuai dengan pemberitahuan privasi.
-- [ ] Deployment preview Netlify berhasil sebelum rilis.
-
-## Kontribusi dan pengembangan
-
-Lakukan perubahan melalui branch terpisah, uji di deployment preview, lalu gabungkan ke branch utama setelah pemeriksaan selesai. Pertahankan teknologi HTML, CSS, dan JavaScript selama belum ada kebutuhan teknis yang kuat untuk berpindah framework.
-"""
-out = "/mnt/data/README.md"
-pypandoc.convert_text(readme, "md", format="md", outputfile=out, extra_args=["--standalone"])
-print(f"README.md berhasil dibuat: {os.path.getsize(out)} bytes")
+- [ ] Semua 24 pernyataan dapat dijawab dan jawaban tersimpan saat berpindah halaman.
+- [ ] Skor keenam bidang berada pada rentang 4–20 dan skor seri ditampilkan dengan benar.
+- [ ] Rekomendasi minat dan daftar prodi favorit tampil terpisah.
+- [ ] Hasil dan PDF bekerja di localhost dan deployment preview.
+- [ ] Layout diuji pada ponsel kecil, tablet, dan desktop.
+- [ ] Pengiriman Google Sheets diuji secara terpisah; mode `no-cors` tidak dapat memastikan keberhasilan penerimaan data dari sisi browser.
+- [ ] Status prodi dan akreditasi diverifikasi dengan sumber resmi terbaru sebelum rilis.
