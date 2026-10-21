@@ -1,126 +1,151 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tes Minat & Potensi Akademik | Univ Annuqayah</title>
-
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="assets/logo-head.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="Kenali kecenderungan minat akademik Anda melalui Tes Minat dan Potensi Akademik Universitas Annuqayah.">
+  <title>Tes Minat dan Potensi Akademik | Universitas Annuqayah</title>
+  <link rel="icon" href="assets/logo-head.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#testPage">Lewati ke formulir tes</a>
 
-<!-- ===== LANDING ===== -->
-<section class="landing" id="landingPage">
-  <div class="landing-card">
-    <img src="assets/logo.png" class="landing-logo">
-    <h1>Selamat Datang</h1>
-    <p>Tes Minat & Potensi Akademik<br>Universitas Annuqayah</p>
-    <button class="btn-start" id="startTestBtn">Mulai Tes Minat</button>
+  <section class="landing" id="landingPage">
+    <nav class="topbar" aria-label="Identitas universitas">
+      <a class="brand" href="index.html" aria-label="Tes Minat dan Potensi Akademik Universitas Annuqayah">
+        <img src="assets/logo-head.png" alt="" class="brand-logo">
+        <span><strong>Universitas Annuqayah</strong><small>Tes Minat dan Potensi Akademik</small></span>
+      </a>
+      <span class="topbar-note"><span class="status-dot"></span> 4 klaster program studi</span>
+    </nav>
+
+    <main class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> LANGKAH AWAL MENUJU MASA DEPAN</p>
+        <h1>Kenali minatmu.<br><em>Jelajahi pilihan studimu.</em></h1>
+        <p class="hero-description">Jawab 24 pernyataan singkat untuk melihat klaster studi yang paling sesuai dengan minatmu. Hasilnya menjadi titik awal untuk mengenali pilihan program studi di Universitas Annuqayah.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-large" id="startTestBtn" type="button">Mulai eksplorasi <span aria-hidden="true">→</span></button>
+          <span class="time-note"><span aria-hidden="true">◷</span> 24 pernyataan · sekitar 6 menit</span>
+        </div>
+        <div class="trust-note"><span class="trust-icon" aria-hidden="true">✓</span><span>Tidak ada jawaban benar atau salah. Pilih yang paling menggambarkan dirimu.</span></div>
+      </div>
+      <div class="hero-art cluster-overview" aria-label="Empat klaster program studi Universitas Annuqayah">
+        <div class="cluster-overview-head"><span>4 KLASTER STUDI</span><small>Kenali bidang yang paling dekat dengan minatmu</small></div>
+        <div class="cluster-grid">
+          <article class="cluster-tile"><span class="cluster-mark">01</span><div><strong>Keagamaan & Sosial Spiritual</strong><small>PAI · PBA · IQT · Tasawuf & Psikoterapi</small></div></article>
+          <article class="cluster-tile"><span class="cluster-mark">02</span><div><strong>Teknik & Teknologi Digital</strong><small>Teknologi Informasi · AI · Teknik Sipil</small></div></article>
+          <article class="cluster-tile"><span class="cluster-mark">03</span><div><strong>Bisnis, Hukum & Manajemen</strong><small>Ekonomi Syariah · Perbankan · Bisnis Digital</small></div></article>
+          <article class="cluster-tile"><span class="cluster-mark">04</span><div><strong>Sains, Pendidikan & Humaniora</strong><small>Biologi · PIAUD · Ilmu Komunikasi · Sastra</small></div></article>
+        </div>
+        <p class="cluster-footnote">Rekomendasi mempertimbangkan skor bidang yang membentuk setiap klaster.</p>
+      </div>
+    </main>
+    <div class="landing-bottom">
+      <span>UNIVERSITAS ANNUQAYAH</span><span>Empat klaster. Satu langkah mengenali minat.</span>
+    </div>
+  </section>
+
+  <div id="testPage" class="test-shell hidden">
+    <header class="app-header">
+      <a class="brand" href="index.html" aria-label="Kembali ke beranda">
+        <img src="assets/logo-head.png" alt="" class="brand-logo">
+        <span><strong>Universitas Annuqayah</strong><small>Tes Minat dan Potensi Akademik</small></span>
+      </a>
+      <button type="button" class="text-button" id="backToHomeBtn">Keluar dari tes</button>
+    </header>
+
+    <main class="test-main">
+      <section id="section-biodata" class="panel form-panel" aria-labelledby="biodataTitle">
+        <div class="panel-heading">
+          <span class="step-kicker">LANGKAH 01</span>
+          <h2 id="biodataTitle">Kenalan dulu, yuk</h2>
+          <p>Informasi ini membantu mengidentifikasi hasil tesmu.</p>
+        </div>
+        <form id="biodataForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group form-wide">
+              <label for="nama">Nama lengkap <span class="required-mark">*</span></label>
+              <input type="text" id="nama" name="nama" autocomplete="name" maxlength="100" placeholder="Contoh: Ahmad Fulan" required>
+              <small class="field-hint">Gunakan nama yang ingin dicantumkan pada laporan.</small>
+            </div>
+            <div class="form-group">
+              <label for="asalSekolah">Asal sekolah <span class="required-mark">*</span></label>
+              <input type="text" id="asalSekolah" name="asalSekolah" autocomplete="organization" maxlength="150" placeholder="Nama sekolah" required>
+            </div>
+            <div class="form-group">
+              <label for="kelas">Kelas / tahun lulus <span class="required-mark">*</span></label>
+              <input type="text" id="kelas" name="kelas" maxlength="60" placeholder="Contoh: XII / 2026" required>
+            </div>
+            <div class="form-group form-wide">
+              <label for="whatsapp">Nomor WhatsApp <span class="required-mark">*</span></label>
+              <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel" maxlength="25" placeholder="Contoh: 08xxxxxxxxxx" required>
+              <small class="field-hint">Masukkan nomor yang aktif, tanpa perlu menambahkan tanda +.</small>
+            </div>
+          </div>
+          <div class="privacy-consent">
+            <label class="checkline" for="dataConsent">
+              <input type="checkbox" id="dataConsent" required>
+              <span>Saya menyetujui data diri dan hasil tes dikirim ke Google Sheets untuk memproses tes ini.</span>
+            </label>
+            <p>Jangan masukkan informasi yang tidak diperlukan. Pastikan pengelola tes telah menyediakan penjelasan privasi sebelum menggunakan data untuk tujuan lain.</p>
+          </div>
+          <p class="form-error hidden" id="biodataError" role="alert"></p>
+          <div class="panel-actions actions-end">
+            <button type="submit" class="btn btn-primary">Lanjut ke petunjuk <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </section>
+
+      <section id="section-instruction" class="panel instruction-panel hidden" aria-labelledby="instructionTitle">
+        <div class="panel-heading">
+          <span class="step-kicker">LANGKAH 02</span>
+          <h2 id="instructionTitle">Tidak perlu menebak jawaban terbaik</h2>
+          <p>Yang kami cari adalah kecenderungan minatmu, bukan nilai rapor.</p>
+        </div>
+        <div class="instruction-list">
+          <div class="instruction-item"><span>01</span><div><strong>Jawab dengan jujur</strong><p>Pilih jawaban yang paling sesuai dengan dirimu saat ini.</p></div></div>
+          <div class="instruction-item"><span>02</span><div><strong>Ikuti intuisi pertama</strong><p>Tidak perlu terlalu lama memikirkan satu pernyataan.</p></div></div>
+          <div class="instruction-item"><span>03</span><div><strong>Lengkapi semua pernyataan</strong><p>Kamu bisa kembali ke bagian sebelumnya sebelum mengirim jawaban.</p></div></div>
+        </div>
+        <div class="notice"><span aria-hidden="true">i</span><p>Hasil merupakan gambaran awal untuk eksplorasi minat, bukan diagnosis atau keputusan mutlak tentang jurusan.</p></div>
+        <div class="panel-actions">
+          <button type="button" class="btn btn-secondary" id="backToBiodataBtn">Kembali</button>
+          <button type="button" class="btn btn-primary" id="btnToQuestions">Saya siap <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+
+      <section id="section-questions" class="panel questions-panel hidden" aria-labelledby="questionsTitle">
+        <div class="question-topline">
+          <div><span class="step-kicker">LANGKAH 03</span><h2 id="questionsTitle">Apa yang menarik bagimu?</h2></div>
+          <span class="progress-count" id="progressText" aria-live="polite">Pernyataan 1–4 dari 24</span>
+        </div>
+        <div class="progress-wrapper" role="progressbar" aria-label="Progres tes" aria-valuemin="0" aria-valuemax="24" aria-valuenow="0" id="progressTrack">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p class="progress-caption" id="progressCaption">Awal yang baik—lanjutkan sesuai ritmemu.</p>
+        <div id="questionsContainer"></div>
+        <p class="form-error hidden" id="questionError" role="alert"></p>
+        <div class="panel-actions question-actions">
+          <button type="button" class="btn btn-secondary hidden" id="prevBtn">← Sebelumnya</button>
+          <span class="autosave-note">Jawaban tersimpan selama tes berlangsung.</span>
+          <button type="button" class="btn btn-primary" id="nextBtn">Lanjut <span aria-hidden="true">→</span></button>
+          <button type="button" class="btn btn-primary hidden" id="submitBtn">Lihat hasil <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+    </main>
+    <footer class="app-footer"><span>Universitas Annuqayah</span><span>Luangkan waktu, kenali dirimu.</span></footer>
   </div>
-</section>
 
-<!-- ===== TEST PAGE ===== -->
-<div id="testPage" class="hidden">
+  <footer class="landing-footer" id="landingFooter">© 2026 Universitas Annuqayah · Tes Minat dan Potensi Akademik</footer>
 
-<header class="header">
-  <img src="assets/logo.png" class="logo">
-  <h1>Tes Minat & Potensi Akademik</h1>
-  <p class="subtitle">Kenali potensi dan rekomendasi bidang studi terbaik untukmu</p>
-</header>
-
-<main class="container">
-
-<!-- ===== BIODATA ===== -->
-<section id="section-biodata" class="card">
-  <h2>Data Diri</h2>
-
-  <div class="form-group">
-    <label>Nama Lengkap</label>
-    <input type="text" id="nama">
-  </div>
-
-  <div class="form-group">
-    <label>Asal Sekolah</label>
-    <input type="text" id="asalSekolah">
-  </div>
-
-  <div class="form-group">
-    <label>Kelas</label>
-    <input type="text" id="kelas">
-  </div>
-
-  <div class="form-group">
-    <label>No WhatsApp</label>
-    <input type="tel" id="whatsapp">
-  </div>
-
-  <button class="btn-submit" id="btnToInstruction">
-    Mulai Tes
-  </button>
-</section>
-
-<!-- ===== PETUNJUK ===== -->
-<section id="section-instruction" class="card hidden">
-  <h2>Petunjuk Pengisian</h2>
-  <p>
-    Jawablah setiap pernyataan dengan jujur sesuai minat dan potensi Anda.
-    Tidak ada jawaban benar atau salah.
-  </p>
-
-  <button class="btn-submit" id="btnToQuestions">
-    Saya Mengerti
-  </button>
-</section>
-
-<!-- ===== SOAL ===== -->
-<section id="section-questions" class="card hidden">
-
-  <div id="progressText"></div>
-
-  <div id="questionsContainer"></div>
-
-  <div class="step-navigation">
-    <button id="prevBtn" class="btn-nav hidden">Sebelumnya</button>
-    <button id="nextBtn" class="btn-nav">Lanjut</button>
-    <button id="submitBtn" class="btn-submit hidden">Lihat Hasil</button>
-  </div>
-
-</section>
-
-<!-- ===== HASIL ===== -->
-<section id="section-result" class="card hidden">
-  <h2>Hasil Tes Minat & Potensi Akademik</h2>
-
-  <div id="resultText"></div>
-
-  <div class="score-box">
-    <p><strong>Humaniora:</strong> <span id="scoreHumaniora"></span></p>
-    <p><strong>Sains:</strong> <span id="scoreSains"></span></p>
-    <p><strong>Keagamaan:</strong> <span id="scoreKeagamaan"></span></p>
-    <p><strong>Teknologi:</strong> <span id="scoreTeknologi"></span></p>
-  </div>
-
-  <div class="recommendation">
-    <h3>Rekomendasi Utama</h3>
-    <p id="mainRecommendation"></p>
-  </div>
-</section>
-
-</main>
-</div>
-
-<footer class="footer">
-  © 2026 Universitas Annuqayah
-</footer>
-
-<script src="js/questions.js"></script>
-<script src="js/scoring.js"></script>
-<script src="js/main.js"></script>
-
+  <script src="js/questions.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
